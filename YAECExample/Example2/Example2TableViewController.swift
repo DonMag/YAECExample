@@ -1,13 +1,14 @@
 //
-//  Example1TableViewController.swift
+//  Example2TableViewController.swift
 //  YAECExample
 //
-//  Created by Don Mag on 3/9/21.
+//  Created by Don Mag on 3/17/22.
 //
 
 import UIKit
 
-class Example1TableViewController: UITableViewController {
+class Example2TableViewController: UITableViewController {
+
 
 	var theData: [MyStruct] = []
 	
@@ -22,7 +23,7 @@ class Example1TableViewController: UITableViewController {
 		theData = SampleData().getSampleData()
 		
 		// register the cell
-		tableView.register(Example1TableViewCell.self, forCellReuseIdentifier: Example1TableViewCell.reuseID)
+		tableView.register(Example2TableViewCell.self, forCellReuseIdentifier: Example2TableViewCell.reuseID)
 		
 		let b: UIBarButtonItem = UIBarButtonItem(title: "Toggle Colors", style: .done, target: self, action: #selector(self.toggleColors))
 		navigationItem.rightBarButtonItem = b
@@ -33,24 +34,23 @@ class Example1TableViewController: UITableViewController {
 		showColors.toggle()
 		tableView.reloadData()
 	}
-
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+	
+	// MARK: - Table view data source
+	
+	override func numberOfSections(in tableView: UITableView) -> Int {
+		return 1
+	}
+	
+	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return theData.count
-    }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Example1TableViewCell.reuseID, for: indexPath) as! Example1TableViewCell
-
+	}
+	
+	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		let cell = tableView.dequeueReusableCell(withIdentifier: Example2TableViewCell.reuseID, for: indexPath) as! Example2TableViewCell
+		
 		let s = theData[indexPath.row]
 		cell.setTheData(s, showColors: showColors)
-		//cell.setData(s.title, strDesc: s.desc, isExpanded: s.isExpanded)
-
+		
 		cell.didChangeHeight = { [weak self] c, isCollapsed in
 			guard let self = self,
 				  let pth = self.tableView.indexPath(for: c)
@@ -60,8 +60,8 @@ class Example1TableViewController: UITableViewController {
 			// tell the tableView to re-run its layout
 			self.tableView.performBatchUpdates(nil, completion: nil)
 		}
-
-        return cell
-    }
-
+		
+		return cell
+	}
+	
 }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FC3955A727E369500060734C /* Example2TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3955A627E369500060734C /* Example2TableViewController.swift */; };
+		FC3955A927E3698A0060734C /* Example2TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3955A827E3698A0060734C /* Example2TableViewCell.swift */; };
 		FC94718525F79CF100BA0393 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC94718425F79CF100BA0393 /* AppDelegate.swift */; };
 		FC94718725F79CF100BA0393 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC94718625F79CF100BA0393 /* SceneDelegate.swift */; };
 		FC94718925F79CF100BA0393 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC94718825F79CF100BA0393 /* ViewController.swift */; };
@@ -19,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FC3955A627E369500060734C /* Example2TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Example2TableViewController.swift; sourceTree = "<group>"; };
+		FC3955A827E3698A0060734C /* Example2TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Example2TableViewCell.swift; sourceTree = "<group>"; };
 		FC94718125F79CF100BA0393 /* YAECExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YAECExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC94718425F79CF100BA0393 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FC94718625F79CF100BA0393 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -43,6 +47,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FC3955A527E3692E0060734C /* Example2 */ = {
+			isa = PBXGroup;
+			children = (
+				FC3955A627E369500060734C /* Example2TableViewController.swift */,
+				FC3955A827E3698A0060734C /* Example2TableViewCell.swift */,
+			);
+			path = Example2;
+			sourceTree = "<group>";
+		};
 		FC94717825F79CF100BA0393 = {
 			isa = PBXGroup;
 			children = (
@@ -62,6 +75,7 @@
 		FC94718325F79CF100BA0393 /* YAECExample */ = {
 			isa = PBXGroup;
 			children = (
+				FC3955A527E3692E0060734C /* Example2 */,
 				FC94719925F79DB300BA0393 /* Example1 */,
 				FC94718425F79CF100BA0393 /* AppDelegate.swift */,
 				FC94718625F79CF100BA0393 /* SceneDelegate.swift */,
@@ -159,7 +173,9 @@
 				FC9471A125F7A7A700BA0393 /* Example1TableViewCell.swift in Sources */,
 				FC94718525F79CF100BA0393 /* AppDelegate.swift in Sources */,
 				FC94718725F79CF100BA0393 /* SceneDelegate.swift in Sources */,
+				FC3955A727E369500060734C /* Example2TableViewController.swift in Sources */,
 				FC94719B25F7A03400BA0393 /* SampleData.swift in Sources */,
+				FC3955A927E3698A0060734C /* Example2TableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

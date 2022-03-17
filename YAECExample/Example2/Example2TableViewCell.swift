@@ -1,30 +1,31 @@
 //
-//  Example1TableViewCell.swift
+//  Example2TableViewCell.swift
 //  YAECExample
 //
-//  Created by Don Mag on 3/9/21.
+//  Created by Don Mag on 3/17/22.
 //
 
 import UIKit
 
 // content of cell is:
-//	vertical stack view
-//	  "top stack row" is a horizontal stack view
+//	"top stack row" is a horizontal stack view
 //		with "Title" label and button
-//    "bottom stack row"
-//		is a multi-line label
+//	multi-line label
 
-class Example1TableViewCell: UITableViewCell {
+class Example2TableViewCell: UITableViewCell {
 
-	static var reuseID: String = "ex1cell"
+	static var reuseID: String = "ex2cell"
 	
 	public var didChangeHeight: ((UITableViewCell, Bool) -> ())?
-
-	private let vStack = UIStackView()
+	
 	private let titleLabel = UILabel()
 	private let descLabel = UILabel()
 	private let toggleButton = UIButton()
 	
+	// these will be used to expand/collapse the cell
+	private var expandedConstraint: NSLayoutConstraint!
+	private var collapsedConstraint: NSLayoutConstraint!
+
 	override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
 		super.init(style: style, reuseIdentifier: reuseIdentifier)
 		commonInit()
@@ -46,13 +47,8 @@ class Example1TableViewCell: UITableViewCell {
 		descLabel.text = "Bottom Label"
 		titleLabel.font = .systemFont(ofSize: 18.0)
 		descLabel.font = .italicSystemFont(ofSize: 15.0)
-
-		descLabel.numberOfLines = 0
 		
-		// vertical stack view properties
-		vStack.translatesAutoresizingMaskIntoConstraints = false
-		vStack.axis = .vertical
-		vStack.spacing = 8
+		descLabel.numberOfLines = 0
 		
 		// horizontal stack view for title label and button
 		let hStack = UIStackView()
@@ -62,30 +58,40 @@ class Example1TableViewCell: UITableViewCell {
 		hStack.addArrangedSubview(titleLabel)
 		hStack.addArrangedSubview(toggleButton)
 		
-		// fill
-		vStack.addArrangedSubview(hStack)
-		vStack.addArrangedSubview(descLabel)
-		
 		// add stack view and button to contentView
-		contentView.addSubview(vStack)
-		
+		contentView.addSubview(hStack)
+		contentView.addSubview(descLabel)
+
+		hStack.translatesAutoresizingMaskIntoConstraints = false
+		descLabel.translatesAutoresizingMaskIntoConstraints = false
+
 		// we'll use the margin guide
 		let g = contentView.layoutMarginsGuide
+
+		expandedConstraint = descLabel.bottomAnchor.constraint(equalTo: g.bottomAnchor)
+		collapsedConstraint = hStack.bottomAnchor.constraint(equalTo: g.bottomAnchor)
+
+		// use less-than-required priority to prevent
+		//	subview "stretching" during animation
+		expandedConstraint.priority = .required - 1
+		collapsedConstraint.priority = .required - 1
 		
 		NSLayoutConstraint.activate([
 			
-			vStack.topAnchor.constraint(equalTo: g.topAnchor),
-			vStack.leadingAnchor.constraint(equalTo: g.leadingAnchor),
-			vStack.trailingAnchor.constraint(equalTo: g.trailingAnchor),
-
+			hStack.topAnchor.constraint(equalTo: g.topAnchor),
+			hStack.leadingAnchor.constraint(equalTo: g.leadingAnchor),
+			hStack.trailingAnchor.constraint(equalTo: g.trailingAnchor),
+			
 			toggleButton.widthAnchor.constraint(equalToConstant: 72.0),
 			
+			descLabel.topAnchor.constraint(equalTo: hStack.bottomAnchor, constant: 8.0),
+			descLabel.leadingAnchor.constraint(equalTo: g.leadingAnchor),
+			descLabel.trailingAnchor.constraint(equalTo: g.trailingAnchor),
+			
+			// we start collapsed
+			collapsedConstraint,
+
 		])
-		
-		// we set the bottomAnchor constraint like this to avoid intermediary auto-layout warnings
-		let c = vStack.bottomAnchor.constraint(equalTo: g.bottomAnchor)
-		c.priority = UILayoutPriority(rawValue: 999)
-		c.isActive = true
 		
 		// set label Hugging and Compression to prevent them from squeezing/stretching
 		titleLabel.setContentHuggingPriority(.required, for: .vertical)
@@ -102,7 +108,11 @@ class Example1TableViewCell: UITableViewCell {
 	func setTheData(_ s: MyStruct, showColors: Bool = false) -> Void {
 		titleLabel.text = s.title
 		descLabel.text = s.desc
-		descLabel.isHidden = !s.isExpanded
+		
+		collapsedConstraint.isActive = !s.isExpanded
+		expandedConstraint.isActive = !collapsedConstraint.isActive
+
+		descLabel.alpha = collapsedConstraint.isActive ? 0.0 : 1.0
 		
 		// label background colors if desired
 		titleLabel.backgroundColor = showColors ? .green : .clear
@@ -110,19 +120,32 @@ class Example1TableViewCell: UITableViewCell {
 		
 		updateButtonTitle()
 	}
-
+	
 	func updateButtonTitle() -> Void {
-		let t = descLabel.isHidden ? "Expand" : "Collapse"
+		let t = collapsedConstraint.isActive ? "Expand" : "Collapse"
 		toggleButton.setTitle(t, for: [])
 	}
 	
 	@objc func toggleButtonTapped() -> Void {
-		descLabel.isHidden.toggle()
+
+		if collapsedConstraint.isActive {
+			collapsedConstraint.isActive = false
+			expandedConstraint.isActive = true
+		} else {
+			expandedConstraint.isActive = false
+			collapsedConstraint.isActive = true
+		}
+
 		updateButtonTitle()
+
+		// fade descLabel in/out
+		UIView.animate(withDuration: 0.3, animations: {
+			self.descLabel.alpha = self.collapsedConstraint.isActive ? 0.0 : 1.0
+		})
 		
 		// use closure to tell the controller the cell content (height) changed
 		// comment / un-comment this line to see the difference
-		didChangeHeight?(self, descLabel.isHidden)
+		didChangeHeight?(self, collapsedConstraint.isActive)
 	}
-
+	
 }

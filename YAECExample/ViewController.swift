@@ -26,5 +26,10 @@ class ViewController: UIViewController {
 		self.navigationController?.pushViewController(vc, animated: true)
 	}
 	
+	@IBAction func ex2Tapped(_ sender: Any) {
+		let vc = Example2TableViewController()
+		self.navigationController?.pushViewController(vc, animated: true)
+	}
+	
 }
 
