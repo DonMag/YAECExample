@@ -31,5 +31,10 @@ class ViewController: UIViewController {
 		self.navigationController?.pushViewController(vc, animated: true)
 	}
 	
+	@IBAction func ex3Tapped(_ sender: Any) {
+		let vc = Example3TableViewController()
+		self.navigationController?.pushViewController(vc, animated: true)
+	}
+	
 }
 

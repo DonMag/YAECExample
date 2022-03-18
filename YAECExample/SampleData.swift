@@ -22,6 +22,27 @@ class SampleData: NSObject {
 			"Label",
 			"""
 			A label can contain an arbitrary amount of text, but UILabel may shrink, wrap, or truncate the text, depending on the size of the bounding rectangle and properties you set. You can control the font, text color, alignment, highlighting, and shadowing of the text in the label.
+
+
+
+			The segments can represent single or multiple selection, or a list of commands.
+
+
+			A
+
+			B
+
+			C
+
+			D
+
+			E
+
+			F
+
+			G
+
+			Each segment can display text or an image, but not both.
 			"""
 		],
 		[
