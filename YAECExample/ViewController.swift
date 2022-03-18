@@ -32,7 +32,7 @@ class ViewController: UIViewController {
 	}
 	
 	@IBAction func ex3Tapped(_ sender: Any) {
-		let vc = Example3TableViewController()
+		let vc = Example3ViewController()
 		self.navigationController?.pushViewController(vc, animated: true)
 	}
 	

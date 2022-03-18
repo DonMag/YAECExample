@@ -18,6 +18,8 @@ class Example2TableViewCell: UITableViewCell {
 	
 	public var didChangeHeight: ((UITableViewCell, Bool) -> ())?
 	
+	public var fadeDuration: Double = 0.3
+	
 	private let titleLabel = UILabel()
 	private let descLabel = UILabel()
 	private let toggleButton = UIButton()
@@ -139,7 +141,7 @@ class Example2TableViewCell: UITableViewCell {
 		updateButtonTitle()
 
 		// fade descLabel in/out
-		UIView.animate(withDuration: 0.3, animations: {
+		UIView.animate(withDuration: fadeDuration, animations: {
 			self.descLabel.alpha = self.collapsedConstraint.isActive ? 0.0 : 1.0
 		})
 		

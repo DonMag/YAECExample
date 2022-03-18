@@ -17,8 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="ziA-bd-106">
-                                <rect key="frame" x="37.5" y="210.5" width="300" height="246"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ziA-bd-106">
+                                <rect key="frame" x="37.5" y="188" width="300" height="291"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Toggle .isHidden on bottom stack view subview" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Eu-66-dyP">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="41"/>
@@ -27,41 +27,47 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="euI-uY-Sks">
-                                        <rect key="frame" x="0.0" y="53" width="300" height="30"/>
+                                        <rect key="frame" x="0.0" y="49" width="300" height="30"/>
                                         <state key="normal" title="Example 1"/>
                                         <connections>
                                             <action selector="ex1Tapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ndG-Ee-lzA"/>
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4ox-lW-Bxj">
-                                        <rect key="frame" x="0.0" y="95" width="300" height="1"/>
+                                        <rect key="frame" x="0.0" y="87" width="300" height="1"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="m0J-Dy-6Hc"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alternate bottom constraint, to allow for fade-in/-out" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2A3-Tk-X8f">
-                                        <rect key="frame" x="0.0" y="108" width="300" height="41"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alternate bottom constraint, to allow for fade-in/-out" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3KU-iD-17p">
+                                        <rect key="frame" x="0.0" y="96" width="300" height="41"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GF9-uq-J28">
-                                        <rect key="frame" x="0.0" y="161" width="300" height="30"/>
+                                        <rect key="frame" x="0.0" y="145" width="300" height="30"/>
                                         <state key="normal" title="Example 2"/>
                                         <connections>
                                             <action selector="ex2Tapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qdP-aE-C4Q"/>
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wjb-yJ-8ia">
-                                        <rect key="frame" x="0.0" y="203" width="300" height="1"/>
+                                        <rect key="frame" x="0.0" y="183" width="300" height="1"/>
                                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="B0a-Lx-rBJ"/>
                                         </constraints>
                                     </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TableView as subView to get around disappearing bottom cells during animation." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2A3-Tk-X8f">
+                                        <rect key="frame" x="0.0" y="192" width="300" height="61"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p4S-MW-eNN">
-                                        <rect key="frame" x="0.0" y="216" width="300" height="30"/>
+                                        <rect key="frame" x="0.0" y="261" width="300" height="30"/>
                                         <state key="normal" title="Example 3"/>
                                         <connections>
                                             <action selector="ex3Tapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vis-Ez-EZF"/>
@@ -69,21 +75,13 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="More examples likely to be added..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Es1-DR-1Ee">
-                                <rect key="frame" x="53.5" y="104" width="268" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="ziA-bd-106" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" multiplier="0.8" id="8Po-kO-qyq"/>
                             <constraint firstItem="ziA-bd-106" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Eb0-B0-WJv"/>
-                            <constraint firstItem="Es1-DR-1Ee" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="60" id="Ybt-00-U5Q"/>
                             <constraint firstItem="ziA-bd-106" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="aws-ZB-obK"/>
-                            <constraint firstItem="Es1-DR-1Ee" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hL3-pT-zdU"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="PU3-Id-LjT"/>
